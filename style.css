@@ -1,0 +1,136 @@
+/* General Page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+/* Header */
+header {
+    background-color: #222222;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* Navigation */
+nav {
+    background-color: #444444;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 20px;
+    font-weight: bold;
+}
+
+/* Hover Property */
+nav a:hover {
+    color: lightblue;
+}
+
+/* About Section */
+.about {
+    background-color: white;
+    width: 80%;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px gray;
+}
+
+.about h2 {
+    text-align: center;
+    color: #222222;
+}
+
+/* Skills Section */
+.skills {
+    background-color: white;
+    width: 80%;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.skills h2 {
+    text-align: center;
+}
+
+.skill {
+    background-color: #eeeeee;
+    padding: 12px;
+    margin: 10px;
+    border-left: 5px solid #333333;
+}
+
+/* Projects */
+.project-title {
+    text-align: center;
+}
+
+.projects {
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+}
+
+.project {
+    background-color: white;
+    padding: 20px;
+    width: 33%;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px gray;
+}
+
+.project h3 {
+    color: #222222;
+}
+
+/* Contact */
+.contact {
+    background-color: #222222;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.contact input {
+    width: 250px;
+    padding: 10px;
+    margin: 8px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.contact button {
+    background-color: white;
+    color: #222222;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Palindrome Checker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            background: radial-gradient(circle at top, #102b35, #020609 70%);
+            color: #00ff9c;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(3, 15, 20, 0.95);
+            padding: 35px 25px;
+            border: 2px solid #00ff9c;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px #00ff9c55,
+                        inset 0 0 15px #00ff9c15;
+        }
+
+        .computer-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px #00ff9c;
+        }
+
+        h2 {
+            color: #00ff9c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 23px;
+            text-shadow: 0 0 10px #00ff9c;
+        }
+
+        .subtitle {
+            color: #71bfb0;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0 20px;
+            background: #071419;
+            color: #00ff9c;
+            border: 1px solid #00ff9c;
+            border-radius: 6px;
+            font-size: 17px;
+            font-family: inherit;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            box-shadow: 0 0 15px #00ff9c88;
+            border-color: #00ffff;
+        }
+
+        input::placeholder {
+            color: #64877e;
+        }
+
+        button {
+            padding: 12px 22px;
+            margin: 5px;
+            background: transparent;
+            color: #00ff9c;
+            border: 1px solid #00ff9c;
+            border-radius: 6px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00ff9c;
+            color: #020609;
+            box-shadow: 0 0 18px #00ff9c;
+            transform: translateY(-2px);
+        }
+
+        #result {
+            min-height: 25px;
+            margin-top: 25px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .success {
+            color: #00ff9c;
+            text-shadow: 0 0 8px #00ff9c88;
+        }
+
+        .error {
+            color: #ff4d6d;
+            text-shadow: 0 0 8px #ff4d6d88;
+        }
+
+        .footer {
+            color: #52756c;
+            font-size: 11px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 25px 18px;
+            }
+
+            h2 {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="computer-icon">🖥️</div>
+
+        <h2>Palindrome Checker</h2>
+        <p class="subtitle">SYSTEM READY // ENTER A NUMBER</p>
+
+        <input
+            type="text"
+            id="number"
+            placeholder="Enter a number..."
+            inputmode="numeric"
+            autocomplete="off"
+        >
+
+        <div>
+            <button onclick="checkPalindrome()">▶ CHECK</button>
+            <button onclick="clearData()">↻ CLEAR</button>
+        </div>
+
+        <p id="result" aria-live="polite"></p>
+
+        <div class="footer">
+            COMPUTER TERMINAL v1.0 | SYSTEM ONLINE
+        </div>
+    </div>
+
+    <script>
+        function checkPalindrome() {
+            let num = document.getElementById("number").value.trim();
+            let result = document.getElementById("result");
+
+            result.className = "";
+
+            if (num === "") {
+                result.className = "error";
+                result.textContent = "ERROR: Please enter a number!";
+                return;
+            }
+
+            if (!/^\d+$/.test(num)) {
+                result.className = "error";
+                result.textContent = "ERROR: Enter a valid number!";
+                return;
+            }
+
+            let reverse = num.split("").reverse().join("");
+
+            if (num === reverse) {
+                result.className = "success";
+                result.textContent = "✓ " + num + " IS A PALINDROME!";
+            } else {
+                result.className = "error";
+                result.textContent = "✗ " + num + " IS NOT A PALINDROME.";
+            }
+        }
+
+        function clearData() {
+            document.getElementById("number").value = "";
+            document.getElementById("result").textContent = "";
+            document.getElementById("result").className = "";
+            document.getElementById("number").focus();
+        }
+
+        document.getElementById("number").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                checkPalindrome();
+            }
+        });
+    </script>
+</body>
+</html>
